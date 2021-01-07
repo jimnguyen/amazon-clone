@@ -4,12 +4,14 @@ import React from "react";
 import { useStateValue } from "../../utils/StateProvider";
 import "./Product.css";
 
+const ADD_TO_BASKET = "ADD_TO_BASKET";
+
 function Product({ title, imageUrl, price, rating }) {
-  const [state, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const addToBasket = () => {
     dispatch({
-      type: "ADD_TO_BASKET",
+      type: ADD_TO_BASKET,
       item: {
         title: title,
         imageUrl: imageUrl,

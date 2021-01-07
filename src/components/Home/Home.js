@@ -1,116 +1,54 @@
-import { Grid } from "@material-ui/core";
+// import { Grid } from "@material-ui/core";
 import React from "react";
 import Product from "../Product/Product";
 import "./Home.css";
-// import productConstants from "../../assets/productConstants";
+import productConstants from "../../assets/productConstants";
+import { Grid, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  product: {
+    width: "80%",
+  },
+  image: {
+    padding: "0",
+  },
+});
 
 function Home() {
-  // const getProductInfo = (productObj) => {
-  //   const { title, price, imageUrl, rating } = productObj;
-  //   return <Product {...productObj} />;
-  // };
+  const classes = useStyles();
+  const getProductInfo = (productObj) => {
+    return (
+      <Grid item id="home__row" xs={12} sm={8} md={4} lg={3}>
+        <Product {...productObj} />
+      </Grid>
+    );
+  };
 
   return (
     <div className="home">
-      <div className="home__container">
+      <div>
         <img
           className="home__image"
           src="https://i.imgur.com/KrBHjyK.png"
           alt="background"
         />
-        <div className="home__row">
-          <Product
-            title="LEATHERMAN, Skeletool Lightweight Multitool"
-            price={64.95}
-            imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-            rating={5}
-          />
-          <Product
-            title="LEATHERMAN, Skeletool Lightweight Multitool"
-            price={64.95}
-            imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-            rating={5}
-          />
-        </div>
-        <div className="home__row">
-          <Product
-            title="LEATHERMAN, Skeletool Lightweight Multitool"
-            price={64.95}
-            imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-            rating={5}
-          />{" "}
-          <Product
-            title="LEATHERMAN, Skeletool Lightweight Multitool"
-            price={64.95}
-            imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-            rating={5}
-          />{" "}
-          <Product
-            title="LEATHERMAN, Skeletool Lightweight Multitool"
-            price={64.95}
-            imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-            rating={5}
-          />
-        </div>
-        <div className="home__row">
-          <Product />
-        </div>
+        <img
+          className="amazon__image"
+          src="https://edited.com/wp-content/uploads/2019/12/AMAZON-1200x537.png"
+          alt=""
+        />
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justify="center"
+          alignItems="stretch"
+        >
+          {productConstants.map((productObj) => getProductInfo(productObj))}
+        </Grid>
       </div>
     </div>
   );
 }
-
-/*         <Grid container spacing={3}>
-          <Grid item sm={4}>
-            <Product
-              title="LEATHERMAN, Skeletool Lightweight Multitool"
-              price={64.95}
-              imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-              rating={5}
-            />
-          </Grid>
-          <Grid item sm={4}>
-            <Product
-              title="LEATHERMAN, Skeletool Lightweight Multitool"
-              price={64.95}
-              imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-              rating={5}
-            />
-          </Grid>
-          <Grid item sm={4}>
-            <Product
-              title="LEATHERMAN, Skeletool Lightweight Multitool"
-              price={64.95}
-              imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-              rating={5}
-            />
-          </Grid>
-        </Grid>
-        <Grid container spacing={2} className="home__row">
-          <Grid item sm={4}>
-            <Product
-              title="LEATHERMAN, Skeletool Lightweight Multitool"
-              price={64.95}
-              imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-              rating={5}
-            />
-          </Grid>
-          <Grid item sm={4}>
-            <Product
-              title="LEATHERMAN, Skeletool Lightweight Multitool"
-              price={64.95}
-              imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-              rating={5}
-            />
-          </Grid>
-          <Grid item sm={4}>
-            <Product
-              title="LEATHERMAN, Skeletool Lightweight Multitool"
-              price={64.95}
-              imageUrl="https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg"
-              rating={5}
-            />
-          </Grid>
-        </Grid> */
 
 export default Home;
