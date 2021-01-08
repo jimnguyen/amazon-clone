@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -13,15 +13,20 @@ const SET_USER = "SET_USER";
 function App() {
   const [, dispatch] = useStateValue();
 
-  useEffect(() => {
+  const setUserAuth = useRef(() => {});
+
+  setUserAuth.current = () => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("The user is ", authUser);
       if (authUser) {
         dispatch({ type: SET_USER, user: authUser });
       } else {
         dispatch({ type: SET_USER, user: null });
       }
     });
+  };
+
+  useEffect(() => {
+    setUserAuth.current();
   }, []);
 
   return (
