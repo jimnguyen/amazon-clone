@@ -14,6 +14,7 @@
 }
 
 .amazon__image {
+  display: inline-block;
   position: relative;
   margin-top: -300px;
   width: 100%;

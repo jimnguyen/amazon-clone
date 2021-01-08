@@ -17,8 +17,9 @@ function Checkout() {
         <img className="checkout__ad" src={imageUrl} alt="" />
         <div>
           <h2 className="checkout__title">Your items</h2>
-          {basket.map((item) => (
+          {basket.map((item, i) => (
             <CheckoutProduct
+              key={item.title + item.price + i}
               title={item.title}
               price={item.price}
               imageUrl={item.imageUrl}

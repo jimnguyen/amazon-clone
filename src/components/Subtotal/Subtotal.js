@@ -8,16 +8,6 @@ import { getBasketTotal } from "../../utils/reducer";
 function Subtotal() {
   const [{ basket }] = useStateValue();
 
-  // const getBasketTotal = (basket) => {
-  //   let totalPrice = 0;
-
-  //   basket.forEach((item) => {
-  //     return (totalPrice += item.price);
-  //   });
-
-  //   return totalPrice;
-  // };
-
   return (
     <div className="subtotal">
       <CurrencyFormat

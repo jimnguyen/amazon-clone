@@ -3,22 +3,12 @@ import React from "react";
 import Product from "../Product/Product";
 import "./Home.css";
 import productConstants from "../../assets/productConstants";
-import { Grid, makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles({
-  product: {
-    width: "80%",
-  },
-  image: {
-    padding: "0",
-  },
-});
+import { Grid } from "@material-ui/core";
 
 function Home() {
-  const classes = useStyles();
-  const getProductInfo = (productObj) => {
+  const getProductInfo = (productObj, key) => {
     return (
-      <Grid item id="home__row" xs={12} sm={8} md={4} lg={3}>
+      <Grid item id="home__row" xs={12} sm={8} md={4} lg={3} key={key}>
         <Product {...productObj} />
       </Grid>
     );
@@ -39,12 +29,14 @@ function Home() {
         />
         <Grid
           container
-          spacing={2}
+          spacing={1}
           direction="row"
           justify="center"
           alignItems="stretch"
         >
-          {productConstants.map((productObj) => getProductInfo(productObj))}
+          {productConstants.map((productObj, i) =>
+            getProductInfo(productObj, i)
+          )}
         </Grid>
       </div>
     </div>
