@@ -10,8 +10,20 @@
   padding: 10px;
   border-bottom: 1px solid lightgray;
 }
+.checkout__left {
+  margin-right: 17px;
+  margin-bottom: 10px;
+}
 
 .checkout__ad {
   width: 100%;
+  object-fit: contain;
   margin-bottom: 10px;
+}
+
+.burgerking {
+  width: 100%;
+  max-width: 343px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
