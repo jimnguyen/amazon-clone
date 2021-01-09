@@ -1,11 +1,11 @@
 import React from "react";
 import "./Header.css";
-
 import { Search, ShoppingCart } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../utils/StateProvider";
 import { auth } from "../../utils/firebase";
 import { getName } from "../../utils/utils";
+import header_logo from "../../assets/images/header_logo.png";
 
 function Header() {
   const [{ basket, user }] = useStateValue();
@@ -21,11 +21,7 @@ function Header() {
   return (
     <div className="header">
       <Link to="/">
-        <img
-          className="header__logo"
-          alt="amazon logo"
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        />
+        <img className="header__logo" alt="amazon logo" src={header_logo} />
       </Link>
       <div className="header__search">
         <input className="header__searchInput" type="text" />

@@ -4,6 +4,8 @@ import Product from "../Product/Product";
 import "./Home.css";
 import productConstants from "../../assets/productConstants";
 import { Grid } from "@material-ui/core";
+import home_background from "../../assets/images/home_background.png";
+import home_amazon_banner from "../../assets/images/home_amazon_banner.png";
 
 function Home() {
   const getProductInfo = (productObj, key) => {
@@ -17,16 +19,8 @@ function Home() {
   return (
     <div className="home">
       <div>
-        <img
-          className="home__image"
-          src="https://i.imgur.com/KrBHjyK.png"
-          alt="background"
-        />
-        <img
-          className="amazon__image"
-          src="https://edited.com/wp-content/uploads/2019/12/AMAZON-1200x537.png"
-          alt=""
-        />
+        <img className="home__image" src={home_background} alt="" />
+        <img className="amazon__image" src={home_amazon_banner} alt="" />
         <Grid
           container
           spacing={1}
