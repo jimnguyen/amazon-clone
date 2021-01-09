@@ -11,6 +11,8 @@
         "iefix",
         "onlinewebfonts",
         "opentype",
-        "truetype"
+        "preconnect",
+        "truetype",
+        "webfonts"
     ]
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Checkout from "./components/Checkout/Checkout";
