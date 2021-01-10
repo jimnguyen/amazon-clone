@@ -1,6 +1,5 @@
 import React from "react";
 import "./Checkout.css";
-
 import Subtotal from "../Subtotal/Subtotal";
 import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
 import { useStateValue } from "../../utils/StateProvider";
@@ -42,6 +41,13 @@ function Checkout() {
           </Typography>
           <hr style={{ margin: "10px" }} />
           {basketDisplay}
+          {/* <CheckoutProduct
+            key="1"
+            title="Testing"
+            price={55.0}
+            imageUrl="../../assets/images/login_logo.png"
+            rating={5}
+          /> */}
         </div>
       </div>
 

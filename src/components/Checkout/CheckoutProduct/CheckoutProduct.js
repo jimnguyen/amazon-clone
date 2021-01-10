@@ -26,7 +26,8 @@ function CheckoutProduct({ title, price, imageUrl, rating }) {
           <Typography variant="h6" display="inline">
             $
           </Typography>
-          {price} <img src={prime_icon} alt="" className="prime__icon" />
+          {price}
+          <img className="prime__iconCheckout" src={prime_icon} alt="" />
         </Typography>
         <div className="checkoutProduct__rating">
           {Array(rating)

@@ -35,7 +35,8 @@ function Product({ title, imageUrl, price, rating }) {
             <Typography variant="h6" display="inline">
               $
             </Typography>
-            {price} <img src={prime_icon} alt="" className="prime__icon" />
+            {price}
+            <img src={prime_icon} alt="" className="prime__icon" />
           </Typography>
         </Typography>
         <div className="product__rating">

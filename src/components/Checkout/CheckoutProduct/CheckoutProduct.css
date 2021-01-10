@@ -19,7 +19,7 @@
   color: #111;
 }
 
-.checkoutProduct img {
+.checkoutProduct__image {
   height: 200px;
   width: 200px;
   object-fit: contain;
@@ -32,4 +32,8 @@
 .checkoutProduct__title {
   font-size: 17px;
   font-weight: 800;
+}
+
+.prime__iconCheckout {
+  height: 30px;
 }
