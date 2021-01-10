@@ -1,11 +1,14 @@
 .checkoutProduct {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
+  padding: 10px;
   margin-bottom: 20px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
 }
 
 .checkoutProduct__info {
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 #checkoutProduct__button {
@@ -17,8 +20,8 @@
 }
 
 .checkoutProduct img {
-  height: 180px;
-  width: 180px;
+  height: 200px;
+  width: 200px;
   object-fit: contain;
 }
 

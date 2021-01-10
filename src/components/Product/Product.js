@@ -1,8 +1,9 @@
 import { Button, Typography } from "@material-ui/core";
-import { Star } from "@material-ui/icons";
+import { StarRounded } from "@material-ui/icons";
 import React from "react";
 import { useStateValue } from "../../utils/StateProvider";
 import "./Product.css";
+import prime_icon from "../../assets/images/prime_icon.png";
 
 const ADD_TO_BASKET = "ADD_TO_BASKET";
 
@@ -24,17 +25,25 @@ function Product({ title, imageUrl, price, rating }) {
   return (
     <div className="product">
       <div className="product__info">
-        <Typography>{title}</Typography>
+        <Typography variant="h6">{title}</Typography>
         <Typography className="product__price">
-          <small>$</small>
-          <strong>{price}</strong>
+          <Typography
+            variant="h5"
+            display="inline"
+            style={{ color: "#B12704" }}
+          >
+            <Typography variant="h6" display="inline">
+              $
+            </Typography>
+            {price} <img src={prime_icon} alt="" className="prime__icon" />
+          </Typography>
         </Typography>
         <div className="product__rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
               <p key={i}>
-                <Star />
+                <StarRounded />
               </p>
             ))}
         </div>

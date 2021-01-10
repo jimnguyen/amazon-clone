@@ -1,6 +1,6 @@
 const productConstants = [
   {
-    title: "CRAFTSMAN Drill /Driver Set, 53-Piece",
+    title: "CRAFTSMAN Drill / Driver Set, 53-Piece",
     price: 15.98,
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/714QOAgPuPL._AC_SL1500_.jpg",
@@ -28,8 +28,7 @@ const productConstants = [
     rating: 5,
   },
   {
-    title:
-      "USB C Power Bank, AUKEY Wireless Portable Charger 10000mAh with Foldable Stand",
+    title: "AUKEY Wireless Portable Charger 10000mAh with Foldable Stand",
     price: 38.69,
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51UEvzLRhPL._AC_SL1500_.jpg",

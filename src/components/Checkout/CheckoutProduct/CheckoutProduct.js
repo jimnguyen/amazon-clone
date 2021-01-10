@@ -1,8 +1,9 @@
-import { Button } from "@material-ui/core";
-import { Star } from "@material-ui/icons";
+import { Button, Typography } from "@material-ui/core";
+import { StarRounded } from "@material-ui/icons";
 import React from "react";
 import { useStateValue } from "../../../utils/StateProvider";
 import "./CheckoutProduct.css";
+import prime_icon from "../../../assets/images/prime_icon.png";
 
 const REMOVE_FROM_BASKET = "REMOVE_FROM_BASKET";
 
@@ -20,17 +21,19 @@ function CheckoutProduct({ title, price, imageUrl, rating }) {
       <img src={imageUrl} alt="" className="checkoutProduct__image" />
 
       <div className="checkoutProduct__info">
-        <p className="checkoutProduct__title">{title}</p>
-        <p className="checkoutProduct__price">
-          <small>$</small>
-          <strong>{price}</strong>
-        </p>
+        <Typography variant="h6">{title}</Typography>
+        <Typography variant="h5" display="inline" style={{ color: "#B12704" }}>
+          <Typography variant="h6" display="inline">
+            $
+          </Typography>
+          {price} <img src={prime_icon} alt="" className="prime__icon" />
+        </Typography>
         <div className="checkoutProduct__rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
               <p key={i}>
-                <Star />
+                <StarRounded />
               </p>
             ))}
         </div>
