@@ -1,51 +1,58 @@
 const productConstants = [
   {
-    title: "CRAFTSMAN Drill / Driver Set, 53-Piece",
-    price: 15.98,
+    title: "Wellness CORE Pate Wet Indoor Cat Food",
+    price: 64.99,
     imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/714QOAgPuPL._AC_SL1500_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/81UDK3kBU%2BL._AC_SL1500_.jpg",
     rating: 4,
   },
   {
-    title: "LEATHERMAN, Skeletool Lightweight Multitool",
-    price: 64.95,
+    title:
+      "Kitchenaid Professional Lift Bowl 600 Stand Mixer 6 quart, Black Matte",
+    price: 449.99,
     imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/61H7Pq7BWEL._AC_SL1500_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/41XFJQHV-0L._AC_.jpg",
     rating: 5,
   },
   {
-    title: "Taotronics Space 1500W Electric Heater",
-    price: 58.99,
-    imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/81nKxpIM5PL._AC_SL1500_.jpg",
+    title: "Logitech G PRO X Superlight Wireless Gaming Mouse - White",
+    price: 149.99,
+    imageUrl: "https://m.media-amazon.com/images/I/61ykKLbddNL._AC_SL1500_.jpg",
     rating: 4,
   },
   {
-    title: "Gamma Supreme Overgrip",
-    price: 5.99,
+    title: 'Dell U-Series 38" Screen LED-Lit Monitor',
+    price: 999.99,
     imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/71XUZJlkAaL._AC_SL1500_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/71RS-pt9QTL._AC_SL1280_.jpg",
     rating: 5,
   },
   {
-    title: "AUKEY Wireless Portable Charger 10000mAh with Foldable Stand",
-    price: 38.69,
+    title: "Wilson Evolution Game Basketball",
+    price: 64.99,
     imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/51UEvzLRhPL._AC_SL1500_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/91vdgs5FY4L._AC_SL1500_.jpg",
     rating: 4,
   },
   {
-    title: "Continental Grand Prix 5000 Performance Road Bike Tire",
-    price: 42.95,
+    title: "Cracking the Coding Interview 6th Edition",
+    price: 26.99,
     imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/61xYtuNnQAL._AC_SL1000_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/410hiaPGyCL._SX348_BO1,204,203,200_.jpg",
     rating: 5,
   },
   {
-    title: "God of War Hits - PlayStation 4",
-    price: 8.99,
+    title: "Nalgene Wide Mouth Water Bottle, 32 Oz, Gray with Black Lid",
+    price: 11.99,
     imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/813xlI-NGpL._SL1500_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/715SE6ZgTjL._SL1500_.jpg",
+    rating: 4,
+  },
+  {
+    title: "Osprey Atmos AG 50 Men's Backpacking Backpack",
+    price: 239.95,
+    imageUrl:
+      "https://images-na.ssl-images-amazon.com/images/I/81QMyHVPqzL._AC_SL1500_.jpg",
     rating: 4,
   },
 ];
