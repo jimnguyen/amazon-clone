@@ -23,7 +23,7 @@ function CheckoutProduct({ title, price, imageUrl, rating }) {
       <div className="checkoutProduct__info">
         <Typography variant="h6">{title}</Typography>
         <Typography variant="h5" display="inline" style={{ color: "#B12704" }}>
-          <Typography variant="h6" display="inline">
+          <Typography variant="h5" display="inline">
             $
           </Typography>
           {price}

@@ -25,7 +25,7 @@ function Checkout() {
     ));
   } else {
     basketDisplay = (
-      <Typography variant="h3" style={{ margin: "1em" }}>
+      <Typography variant="h3" style={{ marginTop: "20px" }}>
         Your Amazon Cart is empty.
       </Typography>
     );

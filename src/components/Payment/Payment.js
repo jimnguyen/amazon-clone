@@ -1,8 +1,9 @@
 import { Button, Typography } from "@material-ui/core";
 import { useElements, useStripe, CardElement } from "@stripe/react-stripe-js";
-import React, { useState } from "react";
+import axios from "../../utils/axios";
+import React, { useEffect, useState } from "react";
 import CurrencyFormat from "react-currency-format";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getBasketTotal } from "../../utils/reducer";
 import { useStateValue } from "../../utils/StateProvider";
 import CheckoutProduct from "../Checkout/CheckoutProduct/CheckoutProduct";
@@ -14,14 +15,45 @@ function Payment() {
   const stripe = useStripe();
   const elements = useElements();
 
+  const history = useHistory();
+
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
 
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
 
+  const [clientSecret, setClientSecret] = useState(true);
+
+  useEffect(() => {
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: "post",
+        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
+      });
+      setClientSecret(response.data.clientSecret);
+    };
+
+    getClientSecret();
+  }, [basket]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setProcessing(true);
+
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      })
+      .then(({ paymentIntent }) => {
+        setSucceeded(true);
+        setError(null);
+        setProcessing(false);
+
+        history.replace("/orders");
+      });
   };
 
   const handleChange = (e) => {
@@ -40,7 +72,7 @@ function Payment() {
 
         <div className="payment__section">
           <div className="payment__title">
-            <Typography variant="h4">1 Shipping Address</Typography>
+            <Typography variant="h5">1 Shipping Address</Typography>
           </div>
           <div className="payment__address">
             <Typography variant="body1">{user?.email}</Typography>
@@ -53,7 +85,7 @@ function Payment() {
 
         <div className="payment__section">
           <div className="payment__title">
-            <Typography variant="h4">2 Payment Method</Typography>
+            <Typography variant="h5">2 Payment Method</Typography>
           </div>
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
@@ -66,7 +98,7 @@ function Payment() {
 
         <div className="payment__section">
           <div className="payment__title">
-            <Typography variant="h4">3 Review items and shipping</Typography>
+            <Typography variant="h5">3 Review items and shipping</Typography>
           </div>
           <div className="payment__items">
             {basket.map((item, i) => (
@@ -81,6 +113,8 @@ function Payment() {
             ))}
           </div>
         </div>
+
+        {/* Place Order */}
 
         <div className="payment__section">
           <div className="button__filler"></div>

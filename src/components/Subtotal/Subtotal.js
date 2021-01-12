@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Subtotal.css";
 import CurrencyFormat from "react-currency-format";
-import { Button } from "@material-ui/core";
+import { Button, Checkbox, Typography } from "@material-ui/core";
 import { useStateValue } from "../../utils/StateProvider";
 import { getBasketTotal } from "../../utils/reducer";
 import { useHistory } from "react-router-dom";
@@ -10,18 +10,21 @@ function Subtotal() {
   const history = useHistory();
   const [{ basket }] = useStateValue();
 
+  let disabled = true;
+  if (basket.length > 0) disabled = false;
+
   return (
     <div className="subtotal">
       <CurrencyFormat
         renderText={(value) => (
           <>
-            <p>
+            <Typography>
               Subtotal ({basket.length} items): <strong>{value}</strong>
-            </p>
-            <small className="subtotal__gift">
-              <input type="checkbox" />
+            </Typography>
+            <Typography variant="subtitle2" className="subtotal__gift">
+              <Checkbox size="small" color="primary" />
               This order contains a gift
-            </small>
+            </Typography>
           </>
         )}
         decimalScale={2}
@@ -31,7 +34,11 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <Button id="subtotal__button" onClick={(e) => history.push("/payment")}>
+      <Button
+        id="subtotal__button"
+        onClick={(e) => history.push("/payment")}
+        disabled={disabled}
+      >
         Proceed to checkout
       </Button>
     </div>
