@@ -63,7 +63,7 @@ function Login() {
         </form>
 
         <p>
-          By continuing, you agree to Amazon clone's Conditions of Use and
+          By continuing, you agree to Amazon Clone's Conditions of Use and
           Privacy Notice.
         </p>
 
