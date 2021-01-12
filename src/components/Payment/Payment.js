@@ -19,7 +19,7 @@ function Payment() {
 
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
-
+  // eslint-disable-next-line
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
 
@@ -33,16 +33,15 @@ function Payment() {
       });
       setClientSecret(response.data.clientSecret);
     };
-
     getClientSecret();
   }, [basket]);
 
-  // console.log("The secret key : ", clientSecret);
+  console.log("The secret key : ", clientSecret);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
-
+    // eslint-disable-next-line
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
