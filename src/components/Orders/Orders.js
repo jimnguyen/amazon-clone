@@ -6,7 +6,7 @@ import Order from "./Order/Order";
 import "./Orders.css";
 
 function Orders() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
