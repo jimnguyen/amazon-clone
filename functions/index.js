@@ -2,8 +2,12 @@ const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")(
-  "sk_test_51I8YprLJIlhCYYuRw4oFHDN5Hbeu2yvnv7LPTJ7KoPQ42HbB8GA2vQ46IQIB7VfzNNQieysdngqjcXm8OxITik0G00Etr2fdeN"
+  "sk_test_51I8u9nHxXphBSaemCrMYKOTv83I0S9IJhcEi7hLtzFvaI86KaKm3PV0esf5bGyz64rkHxvbUJzKTEKvkIXidjkmA00zhMTQoSh"
 );
+const runtimeOpts = {
+  timeoutSeconds: 300,
+  memory: "1GB",
+};
 // API
 
 // App config
@@ -31,4 +35,4 @@ app.post("/payments/create", async (request, response) => {
 });
 
 // Listen command
-exports.api = functions.https.onRequest(app);
+exports.api = functions.runWith(runtimeOpts).https.onRequest(app);

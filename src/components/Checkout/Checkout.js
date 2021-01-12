@@ -19,7 +19,7 @@ function Checkout() {
         key={item.title + item.price + i}
         title={item.title}
         price={item.price}
-        imageUrl={item.imageUrl}
+        image={item.image}
         rating={item.rating}
       />
     ));
@@ -41,13 +41,6 @@ function Checkout() {
           </Typography>
           <hr style={{ margin: "10px" }} />
           {basketDisplay}
-          {/* <CheckoutProduct
-            key="1"
-            title="Testing"
-            price={55.0}
-            imageUrl="../../assets/images/login_logo.png"
-            rating={5}
-          /> */}
         </div>
       </div>
 

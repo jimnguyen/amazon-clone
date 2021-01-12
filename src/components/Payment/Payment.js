@@ -5,12 +5,15 @@ import React, { useEffect, useState } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link, useHistory } from "react-router-dom";
 import { getBasketTotal } from "../../utils/reducer";
+import { db } from "../../utils/firebase";
 import { useStateValue } from "../../utils/StateProvider";
 import CheckoutProduct from "../Checkout/CheckoutProduct/CheckoutProduct";
 import "./Payment.css";
 
+const EMPTY_BASKET = "EMPTY_BASKET";
+
 function Payment() {
-  const [{ basket, user }] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -23,7 +26,8 @@ function Payment() {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
 
-  const [clientSecret, setClientSecret] = useState(true);
+  const [clientSecret, setClientSecret] = useState("");
+  // const [cardInfo, setCardInfo] = useState(CardElement);
 
   useEffect(() => {
     const getClientSecret = async () => {
@@ -32,18 +36,21 @@ function Payment() {
         url: `/payments/create?total=${Math.floor(
           getBasketTotal(basket) * 100
         )}`,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
       });
       setClientSecret(response.data.clientSecret);
     };
     getClientSecret();
   }, [basket]);
 
-  console.log("The secret key : ", clientSecret);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
-    // eslint-disable-next-line
+
+    // eslint-disable-next-line no-unused-vars
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -51,9 +58,23 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispatch({
+          type: EMPTY_BASKET,
+        });
 
         history.replace("/orders");
       });
@@ -110,7 +131,7 @@ function Payment() {
                 key={item.title + item.price + i}
                 title={item.title}
                 price={item.price}
-                imageUrl={item.imageUrl}
+                image={item.image}
                 rating={item.rating}
               />
             ))}
@@ -120,7 +141,6 @@ function Payment() {
         {/* Place Order */}
 
         <div className="payment__section">
-          <div className="button__filler"></div>
           <Button
             disabled={processing || disabled || succeeded}
             variant="contained"

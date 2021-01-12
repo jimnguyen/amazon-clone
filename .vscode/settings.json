@@ -1,23 +1,25 @@
 {
-    "cSpell.words": [
-        "AUKEY",
-        "Kitchenaid",
-        "LEATHERMAN",
-        "Multitool",
-        "Nalgene",
-        "Overgrip",
-        "Skeletool",
-        "Superlight",
-        "Taotronics",
-        "browserslist",
-        "burgerking",
-        "csimcx",
-        "iefix",
-        "middlewares",
-        "onlinewebfonts",
-        "opentype",
-        "preconnect",
-        "truetype",
-        "webfonts"
-    ]
+  "cSpell.enabled": false,
+  "cSpell.words": [
+    "AUKEY",
+    "Kitchenaid",
+    "LEATHERMAN",
+    "Multitool",
+    "Nalgene",
+    "Overgrip",
+    "Skeletool",
+    "Superlight",
+    "Taotronics",
+    "axios",
+    "browserslist",
+    "burgerking",
+    "csimcx",
+    "iefix",
+    "middlewares",
+    "onlinewebfonts",
+    "opentype",
+    "preconnect",
+    "truetype",
+    "webfonts"
+  ]
 }

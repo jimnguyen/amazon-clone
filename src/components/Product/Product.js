@@ -7,7 +7,7 @@ import prime_icon from "../../assets/images/prime_icon.png";
 
 const ADD_TO_BASKET = "ADD_TO_BASKET";
 
-function Product({ title, imageUrl, price, rating }) {
+function Product({ title, image, price, rating }) {
   const [, dispatch] = useStateValue();
 
   const addToBasket = () => {
@@ -15,7 +15,7 @@ function Product({ title, imageUrl, price, rating }) {
       type: ADD_TO_BASKET,
       item: {
         title: title,
-        imageUrl: imageUrl,
+        image: image,
         price: price,
         rating: rating,
       },
@@ -40,7 +40,7 @@ function Product({ title, imageUrl, price, rating }) {
               </p>
             ))}
         </div>
-        <img src={imageUrl} alt="" />
+        <img src={image} alt="" />
         <Button id="product__button" onClick={addToBasket}>
           Add to cart
         </Button>

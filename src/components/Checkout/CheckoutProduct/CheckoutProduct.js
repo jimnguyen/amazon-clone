@@ -7,7 +7,7 @@ import prime_icon from "../../../assets/images/prime_icon.png";
 
 const REMOVE_FROM_BASKET = "REMOVE_FROM_BASKET";
 
-function CheckoutProduct({ title, price, imageUrl, rating }) {
+function CheckoutProduct({ title, price, image, rating, hideButton }) {
   const [, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
@@ -18,7 +18,7 @@ function CheckoutProduct({ title, price, imageUrl, rating }) {
 
   return (
     <div className="checkoutProduct">
-      <img src={imageUrl} alt="" className="checkoutProduct__image" />
+      <img src={image} alt="" className="checkoutProduct__image" />
 
       <div className="checkoutProduct__info">
         <Typography variant="h6">{title}</Typography>
@@ -35,13 +35,15 @@ function CheckoutProduct({ title, price, imageUrl, rating }) {
               </p>
             ))}
         </div>
-        <Button
-          id="checkoutProduct__button"
-          size="small"
-          onClick={removeFromBasket}
-        >
-          Remove from basket
-        </Button>
+        {!hideButton && (
+          <Button
+            id="checkoutProduct__button"
+            size="small"
+            onClick={removeFromBasket}
+          >
+            Remove from basket
+          </Button>
+        )}
       </div>
     </div>
   );
