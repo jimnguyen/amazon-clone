@@ -37,6 +37,8 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
+  // console.log("The secret key : ", clientSecret);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
@@ -72,7 +74,7 @@ function Payment() {
 
         <div className="payment__section">
           <div className="payment__title">
-            <Typography variant="h5">1 Shipping Address</Typography>
+            <Typography variant="h5">Shipping Address</Typography>
           </div>
           <div className="payment__address">
             <Typography variant="body1">{user?.email}</Typography>
@@ -85,7 +87,7 @@ function Payment() {
 
         <div className="payment__section">
           <div className="payment__title">
-            <Typography variant="h5">2 Payment Method</Typography>
+            <Typography variant="h5">Payment Method</Typography>
           </div>
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
@@ -98,7 +100,7 @@ function Payment() {
 
         <div className="payment__section">
           <div className="payment__title">
-            <Typography variant="h5">3 Review items and shipping</Typography>
+            <Typography variant="h5">Review items and shipping</Typography>
           </div>
           <div className="payment__items">
             {basket.map((item, i) => (

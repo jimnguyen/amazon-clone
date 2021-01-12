@@ -29,7 +29,7 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <Link to={!user && "/login"} style={{ textDecoration: "none" }}>
+        <Link to="/login" style={{ textDecoration: "none" }}>
           <div className="header__option" onClick={handleAuthentication}>
             <span className="header__optionLineOne">
               Hello, {user ? name : "Guest"}

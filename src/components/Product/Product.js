@@ -26,19 +26,11 @@ function Product({ title, imageUrl, price, rating }) {
     <div className="product">
       <div className="product__info">
         <Typography variant="h6">{title}</Typography>
-        <Typography className="product__price">
-          <Typography
-            variant="h5"
-            display="inline"
-            style={{ color: "#B12704" }}
-          >
-            <Typography variant="h6" display="inline">
-              $
-            </Typography>
-            {price}
-            <img src={prime_icon} alt="" className="prime__icon" />
-          </Typography>
+        <Typography variant="h5" display="inline" style={{ color: "#B12704" }}>
+          ${price}
+          <img src={prime_icon} alt="" className="prime__icon" />
         </Typography>
+
         <div className="product__rating">
           {Array(rating)
             .fill()

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Subtotal.css";
 import CurrencyFormat from "react-currency-format";
 import { Button, Checkbox, Typography } from "@material-ui/core";
