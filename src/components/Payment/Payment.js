@@ -19,7 +19,7 @@ function Payment() {
 
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
-  // eslint-disable-next-line
+
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
 
@@ -29,7 +29,9 @@ function Payment() {
     const getClientSecret = async () => {
       const response = await axios({
         method: "post",
-        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
+        url: `/payments/create?total=${Math.floor(
+          getBasketTotal(basket) * 100
+        )}`,
       });
       setClientSecret(response.data.clientSecret);
     };
@@ -77,8 +79,8 @@ function Payment() {
           </div>
           <div className="payment__address">
             <Typography variant="body1">{user?.email}</Typography>
-            <Typography variant="body1">123 test ave</Typography>
-            <Typography variant="body1">test, ts</Typography>
+            <Typography variant="body1">406 154th Ave SE</Typography>
+            <Typography variant="body1">Bellevue, WA</Typography>
           </div>
         </div>
 
@@ -123,6 +125,7 @@ function Payment() {
             disabled={processing || disabled || succeeded}
             variant="contained"
             id="button"
+            onClick={handleSubmit}
           >
             <span>{processing ? <p>Processing</p> : "Place your order"}</span>
           </Button>
@@ -146,6 +149,7 @@ function Payment() {
               prefix={"$"}
             />
           </div>
+          {error && <div>{error}</div>}
         </div>
       </div>
     </div>
