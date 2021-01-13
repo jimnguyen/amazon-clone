@@ -99,8 +99,8 @@ function Payment() {
           </div>
           <div className="payment__address">
             <Typography variant="body1">{user?.email}</Typography>
-            <Typography variant="body1">406 154th Ave SE</Typography>
-            <Typography variant="body1">Bellevue, WA</Typography>
+            <Typography variant="body1">123 React Test</Typography>
+            <Typography variant="body1">Los Angeles, CA</Typography>
           </div>
         </div>
 
