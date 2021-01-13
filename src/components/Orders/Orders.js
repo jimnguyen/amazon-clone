@@ -33,8 +33,8 @@ function Orders() {
         Your Orders
       </Typography>
       <div className="orders__order">
-        {orders?.map((order) => (
-          <Order order={order} />
+        {orders?.map((order, i) => (
+          <Order order={order} key={i} />
         ))}
       </div>
     </div>

@@ -26,8 +26,7 @@ function Payment() {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
 
-  const [clientSecret, setClientSecret] = useState("");
-  // const [cardInfo, setCardInfo] = useState(CardElement);
+  const [clientSecret, setClientSecret] = useState(true);
 
   useEffect(() => {
     const getClientSecret = async () => {

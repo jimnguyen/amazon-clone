@@ -5,8 +5,8 @@ const stripe = require("stripe")(
   "sk_test_51I8u9nHxXphBSaemCrMYKOTv83I0S9IJhcEi7hLtzFvaI86KaKm3PV0esf5bGyz64rkHxvbUJzKTEKvkIXidjkmA00zhMTQoSh"
 );
 const runtimeOpts = {
-  timeoutSeconds: 300,
-  memory: "1GB",
+  timeoutSeconds: 540,
+  memory: "2GB",
 };
 // API
 

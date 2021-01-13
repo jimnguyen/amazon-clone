@@ -8,14 +8,22 @@ import CurrencyFormat from "react-currency-format";
 function Order({ order }) {
   return (
     <div className="order">
-      <Typography variant="h3">Order</Typography>
-      <Typography>
+      <Typography
+        variant="h4"
+        style={{ marginLeft: "-3px", marginBottom: "5px" }}
+      >
+        Order Summary
+      </Typography>
+      <Typography variant="body1">
+        Order placed:{" "}
         {moment.unix(order.data.created).format("MMMM Do YYYY, h:mma")}
       </Typography>
-      <Typography id="order__id">{order.id}</Typography>
-      {order.data.basket?.map((item) => (
+      <Typography id="order__id" variant="caption">
+        ORDER # {order.id}
+      </Typography>
+      {order.data.basket?.map((item, i) => (
         <CheckoutProduct
-          id={item.id}
+          key={item.title + item.price + i}
           title={item.title}
           image={item.image}
           price={item.price}
